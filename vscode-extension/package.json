@@ -1,0 +1,128 @@
+{
+  "name": "ai-copilot",
+  "displayName": "AI Copilot",
+  "description": "Local AI coding assistant powered by Ollama",
+  "version": "1.0.0",
+  "author": "AI Copilot Team",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "AI",
+    "Copilots",
+    "Snippets"
+  ],
+  "keywords": [
+    "ai",
+    "copilot",
+    "code-completion",
+    "ollama",
+    "local"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:java",
+    "onLanguage:cpp",
+    "onLanguage:go",
+    "onCommand:aiCopilot.complete",
+    "onCommand:aiCopilot.explain",
+    "onCommand:aiCopilot.fix",
+    "onCommand:aiCopilot.test",
+    "onCommand:aiCopilot.docs"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiCopilot.complete",
+        "title": "AI Copilot: Complete Code"
+      },
+      {
+        "command": "aiCopilot.explain",
+        "title": "AI Copilot: Explain Code"
+      },
+      {
+        "command": "aiCopilot.fix",
+        "title": "AI Copilot: Fix Bug"
+      },
+      {
+        "command": "aiCopilot.test",
+        "title": "AI Copilot: Generate Test"
+      },
+      {
+        "command": "aiCopilot.docs",
+        "title": "AI Copilot: Generate Docs"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "aiCopilot.complete",
+        "key": "ctrl+alt+c",
+        "mac": "cmd+alt+c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiCopilot.explain",
+        "key": "ctrl+alt+e",
+        "mac": "cmd+alt+e",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiCopilot.fix",
+        "key": "ctrl+alt+f",
+        "mac": "cmd+alt+f",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiCopilot.test",
+        "key": "ctrl+alt+t",
+        "mac": "cmd+alt+t",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiCopilot.docs",
+        "key": "ctrl+alt+d",
+        "mac": "cmd+alt+d",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "AI Copilot",
+      "properties": {
+        "aiCopilot.backendUrl": {
+          "type": "string",
+          "default": "http://localhost:3000",
+          "description": "Backend API URL"
+        },
+        "aiCopilot.autoComplete": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable auto-completion on hover"
+        },
+        "aiCopilot.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show status bar item"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "axios": "^1.6.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}

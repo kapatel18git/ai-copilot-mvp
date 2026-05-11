@@ -1,0 +1,27 @@
+{
+  "name": "ai-copilot-cli",
+  "version": "1.0.0",
+  "description": "CLI tool for AI Copilot",
+  "main": "src/cli.js",
+  "bin": {
+    "copilot": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "dev": "nodemon src/cli.js"
+  },
+  "keywords": ["copilot", "ai", "cli"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "chalk": "^4.1.2",
+    "commander": "^11.0.0",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^8.2.5",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
